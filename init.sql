@@ -101,6 +101,13 @@ INSERT INTO `users` VALUES (1,'malpa',NULL,'barbra@gmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+-- Add foreign keys to the booked_rooms table
+ALTER TABLE `booked_rooms`
+ADD FOREIGN KEY (`room_id`) REFERENCES `rooms`(`id`),
+ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
+
+
 --
 -- Dumping routines for database 'bookings'
 --
