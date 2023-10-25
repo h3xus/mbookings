@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `booked_rooms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `booked_rooms` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title_meeting` varchar(255) DEFAULT NULL,
   `room_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `rooms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) DEFAULT NULL  AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,

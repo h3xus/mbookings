@@ -24,12 +24,12 @@ type Room struct {
 }
 
 type Meeting struct {
-	Title       string `json:"title"`
-	RoomID      int    `json:"room_id"`
-	UserID      int    `json:"user_id"`
-	Status      string `json:"status"`
-	BookingDate string `json:"booking_date"`
-	Duration    int    `json:"duration"`
+	TitleMeeting string `json:"title_meeting"`
+	RoomID       int    `json:"room_id"`
+	UserID       int    `json:"user_id"`
+	Status       string `json:"status"`
+	BookingDate  string `json:"booking_date"`
+	Duration     int    `json:"duration"`
 }
 
 func getDBConnection() (*sql.DB, error) {
@@ -95,8 +95,8 @@ func addMeetingHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Insert the meeting into the database
-	_, err = db.Exec("INSERT INTO meetings (title, room_id, user_id, status, booking_date, duration) VALUES (?, ?, ?, ?, ?, ?)",
-		meeting.Title, meeting.RoomID, meeting.UserID, meeting.Status, meeting.BookingDate, meeting.Duration)
+	_, err = db.Exec("INSERT INTO booked_rooms (title_meeting, room_id, user_id, status, booking_date, duration) VALUES (?, ?, ?, ?, ?, ?)",
+		meeting.TitleMeeting, meeting.RoomID, meeting.UserID, meeting.Status, meeting.BookingDate, meeting.Duration)
 	if err != nil {
 		log.Print(err.Error())
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
